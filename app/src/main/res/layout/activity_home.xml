@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#060720"
+    tools:context=".ui.view.home.HomeActivity"
+    android:padding="32dp">
+
+    <TextView
+        android:textSize="32sp"
+        android:id="@+id/tvCityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Villa alemana" />
+
+    <TextView
+        android:textSize="24sp"
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCityName"
+        android:text="Jul 20, 2021" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/watch_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDate"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="weather_day_broken_clouds.json"
+        app:lottie_loop="true"
+        app:lottie_speed="1" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/watch_animation"
+        app:layout_constraintStart_toStartOf="@+id/watch_animation"
+        app:layout_constraintTop_toBottomOf="@+id/watch_animation">
+
+        <TextView
+            android:id="@+id/tvTempName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="temp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTempNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="32"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/tvTempName"
+            app:layout_constraintStart_toStartOf="@+id/tvTempName"
+            app:layout_constraintTop_toBottomOf="@+id/tvTempName" />
+
+        <TextView
+            android:id="@+id/tvWindName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wind"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/tvHumidityName"
+            app:layout_constraintStart_toEndOf="@+id/tvTempName"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvWindNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="32"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/tvWindName"
+            app:layout_constraintStart_toStartOf="@+id/tvWindName"
+            app:layout_constraintTop_toBottomOf="@+id/tvWindName" />
+
+        <TextView
+            android:id="@+id/tvHumidityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Humidity"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvHumidityNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="32"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/tvHumidityName"
+            app:layout_constraintStart_toStartOf="@+id/tvHumidityName"
+            app:layout_constraintTop_toBottomOf="@+id/tvHumidityName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
