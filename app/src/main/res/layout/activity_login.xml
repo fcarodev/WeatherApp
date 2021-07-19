@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/gradient_background_login"
+    android:background="@color/primaryColorBackground"
     android:layout_height="match_parent"
     tools:context=".ui.view.login.LoginActivity"
     android:padding="32dp">
@@ -24,19 +24,31 @@
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <EditText
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_weathjer_icon"
+                android:id="@+id/ivLogoLogin"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/etRutLogin"
-                android:hint="Rut"
-                android:maxLines="1"
-                android:lines="1"
-                android:imeOptions="actionNext"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
+                android:layout_marginTop="32dp"
+                android:id="@+id/etRutLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Rut"
+                android:imeOptions="actionNext"
+                android:lines="1"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivLogoLogin" />
+
+            <EditText
+                android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/etPassword"
@@ -56,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Iniciar sesion"
-                android:backgroundTint="@color/purple_200"
+                android:backgroundTint="@color/purple_500"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

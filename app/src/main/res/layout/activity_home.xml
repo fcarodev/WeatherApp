@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/clHome"
     android:layout_height="match_parent"
-    android:background="#060720"
+    android:background="@color/primaryColorBackground"
     tools:context=".ui.view.home.HomeActivity"
     android:padding="32dp">
 
@@ -20,7 +21,7 @@
         android:text="Villa alemana" />
 
     <TextView
-        android:textSize="24sp"
+        android:textSize="16sp"
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +32,8 @@
         android:text="Jul 20, 2021" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/watch_animation"
+        android:layout_marginTop="64dp"
+        android:id="@+id/weatherAnimation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,18 +45,22 @@
         app:lottie_speed="1" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
         android:padding="32dp"
-        app:layout_constraintEnd_toEndOf="@+id/watch_animation"
-        app:layout_constraintStart_toStartOf="@+id/watch_animation"
-        app:layout_constraintTop_toBottomOf="@+id/watch_animation">
+        app:layout_constraintEnd_toEndOf="@+id/weatherAnimation"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/weatherAnimation"
+        app:layout_constraintTop_toBottomOf="@+id/weatherAnimation">
 
         <TextView
-            android:id="@+id/tvTempName"
+            android:id="@+id/tvTempTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="temp"
+            android:text="Temp"
+            android:fontFamily="@font/dmsans_regular"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -64,19 +70,100 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="32"
+            android:fontFamily="@font/dmsans_bold"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/tvTempName"
-            app:layout_constraintStart_toStartOf="@+id/tvTempName"
-            app:layout_constraintTop_toBottomOf="@+id/tvTempName" />
+            app:layout_constraintEnd_toEndOf="@+id/tvTempTitle"
+            app:layout_constraintStart_toStartOf="@+id/tvTempTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTempTitle" />
 
         <TextView
-            android:id="@+id/tvWindName"
+            android:id="@+id/tvMaxTempTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Max Temp"
+            android:fontFamily="@font/dmsans_regular"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/tvMinTempTitle"
+            app:layout_constraintStart_toEndOf="@+id/tvTempTitle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMaxTempNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="32"
+            android:fontFamily="@font/dmsans_bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/tvMaxTempTitle"
+            app:layout_constraintStart_toStartOf="@+id/tvMaxTempTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvMaxTempTitle" />
+
+        <TextView
+            android:id="@+id/tvMinTempTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Min Temp"
+            android:fontFamily="@font/dmsans_regular"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMinTempNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="32"
+            android:fontFamily="@font/dmsans_bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/tvMinTempTitle"
+            app:layout_constraintStart_toStartOf="@+id/tvMinTempTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvMinTempTitle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clWeatherData"
+        android:padding="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <TextView
+            android:id="@+id/tvPressureTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pressure"
+            android:fontFamily="@font/dmsans_regular"
+
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvPressureNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="32"
+            android:fontFamily="@font/dmsans_bold"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/tvPressureTitle"
+            app:layout_constraintStart_toStartOf="@+id/tvPressureTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvPressureTitle"/>
+
+
+        <TextView
+            android:id="@+id/tvWindTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Wind"
+            android:fontFamily="@font/dmsans_regular"
+
             android:textColor="@color/white"
-            app:layout_constraintEnd_toStartOf="@+id/tvHumidityName"
-            app:layout_constraintStart_toEndOf="@+id/tvTempName"
+            app:layout_constraintEnd_toStartOf="@+id/tvHumidityTitle"
+            app:layout_constraintStart_toEndOf="@+id/tvPressureTitle"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -84,16 +171,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="32"
+            android:fontFamily="@font/dmsans_bold"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/tvWindName"
-            app:layout_constraintStart_toStartOf="@+id/tvWindName"
-            app:layout_constraintTop_toBottomOf="@+id/tvWindName" />
+            app:layout_constraintEnd_toEndOf="@+id/tvWindTitle"
+            app:layout_constraintStart_toStartOf="@+id/tvWindTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvWindTitle" />
 
         <TextView
-            android:id="@+id/tvHumidityName"
+            android:id="@+id/tvHumidityTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Humidity"
+            android:fontFamily="@font/dmsans_regular"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -103,11 +192,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="32"
+            android:fontFamily="@font/dmsans_bold"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/tvHumidityName"
-            app:layout_constraintStart_toStartOf="@+id/tvHumidityName"
-            app:layout_constraintTop_toBottomOf="@+id/tvHumidityName" />
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvHumidityTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvHumidityTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

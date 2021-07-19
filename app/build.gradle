@@ -8,6 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
+        resConfigs "es", "en"
         applicationId "com.portfolio.weatherapp"
         minSdkVersion 26
         targetSdkVersion 30
