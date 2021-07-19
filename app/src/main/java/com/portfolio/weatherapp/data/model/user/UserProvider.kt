@@ -7,11 +7,11 @@ class UserProvider {
     companion object {
         fun userSaved(): UserModel {
             return UserModel(
-                "18236924-1",
-                "Felipe",
-                "Caro",
-                "felip.caro.vitreras@gmail.com",
-                Address("Av falsa", "Villa Alemana", "Valparaiso", "Chile"),
+                "18236665-1",
+                "Marcelo",
+                "Contreras",
+                "mcontreras@gmail.com",
+                Address("Av falsa", "Calama", "Valparaiso", "Chile"),
                 "1234"
             )
         }
@@ -20,6 +20,5 @@ class UserProvider {
             return HawkManager().getCurrentUserLoggedIn()
         }
     }
-
 
 }

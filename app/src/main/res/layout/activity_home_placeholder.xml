@@ -23,6 +23,13 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/shape_corner_round_placeholder"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCityName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvCityName" />
+            <ImageView
                 android:id="@+id/tvCityName"
                 android:layout_width="200dp"
                 android:layout_height="20dp"

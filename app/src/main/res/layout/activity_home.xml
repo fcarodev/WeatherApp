@@ -9,6 +9,14 @@
     tools:context=".ui.view.home.HomeActivity"
     android:padding="32dp">
 
+    <ImageView
+        android:id="@+id/imgProfileUser"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_user_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCityName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvCityName" />
     <TextView
         android:textSize="32sp"
         android:id="@+id/tvCityName"

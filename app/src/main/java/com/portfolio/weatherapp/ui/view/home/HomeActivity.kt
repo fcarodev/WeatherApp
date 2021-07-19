@@ -1,5 +1,6 @@
 package com.portfolio.weatherapp.ui.view.home
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -14,19 +15,20 @@ import com.portfolio.weatherapp.data.model.user.UserModel
 import com.portfolio.weatherapp.data.model.weather.WeatherModel
 import com.portfolio.weatherapp.databinding.ActivityHomeBinding
 import com.portfolio.weatherapp.manager.HawkManager
+import com.portfolio.weatherapp.ui.view.splash.SplashActivity
 import com.portfolio.weatherapp.ui.viewModel.WeatherViewModel
-import com.portfolio.weatherapp.utils.WeatherHelper
-import com.portfolio.weatherapp.utils.setBackgroundColorByDay
-import com.portfolio.weatherapp.utils.setStatusBarColor
+import com.portfolio.weatherapp.utils.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
-import java.util.*
 
-class HomeActivity : AppCompatActivity() {
+
+class HomeActivity : AppCompatActivity(), BottomSheetProfile.ProfileClickListener {
     private lateinit var binding: ActivityHomeBinding
     private val weatherViewModel: WeatherViewModel by viewModels()
     lateinit var clPlaceholder : ConstraintLayout
+    var bottomSheetProfileUser = BottomSheetProfile(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
@@ -47,6 +49,9 @@ class HomeActivity : AppCompatActivity() {
 
     private fun updateView(user: UserModel, weather: WeatherModel) {
         val dateTime = LocalDateTime.now()
+        binding.imgProfileUser.setOnClickListener {
+            bottomSheetProfileUser.show(this.supportFragmentManager, "bottomSheetRegisterUser")
+        }
         binding.clHome.setBackgroundColorByDay(this)
         binding.tvCityName.text = user.address!!.city
         binding.tvDate.text = dateTime.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG))
@@ -67,6 +72,18 @@ class HomeActivity : AppCompatActivity() {
         binding.tvTempNumber.text = "${weather.main.feelsLike}°"
         binding.tvMaxTempNumber.text = "${weather.main.tempMax}°"
         binding.tvMinTempNumber.text = "${weather.main.tempMin}°"
+    }
+
+    override fun onLogoutClickListener() {
+        HawkManager().deleteCurrentUserLoggedIn()
+        navigateToSplash()
+    }
+
+    private fun navigateToSplash() {
+        val intent = Intent(this, SplashActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        backFromActivityAnimation()
+        finish()
     }
 
 }
